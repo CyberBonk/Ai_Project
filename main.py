@@ -10,6 +10,8 @@ from pyppeteer import launch
 
 from selenium import webdriver
 import os
+from roof_area_calculation import cv2Tester
+
 
 
 # Initialize Nominatim geocoder
@@ -43,7 +45,6 @@ folium.TileLayer(
 mymap.save('mymap.html')
 
 
-
 # Set up the Firefox driver (you can use other browsers too)
 
 try:
@@ -54,15 +55,21 @@ try:
     driver = webdriver.Firefox()
     driver.get('file://' + relative_path)  # Use 'file://' prefix for local file paths
     print("WebDriver is running successfully!")
+
+    time.sleep(2)
+    driver.save_screenshot('mymap.png')
+
+    cv2Tester()
+
 except Exception as e:
     print(f"Error: {e}")
 
-time.sleep(2)
 # Capture the screenshot and save it as mymap.png
-driver.save_screenshot('mymap.png')
+
 
 # Close the browser window
 driver.quit()
+
 
 
 
