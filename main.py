@@ -28,7 +28,7 @@ print("Longitude:", location.longitude)
 #Image(r"C:\Users\Bebo\Desktop\Artificial_Intelligence\Project\testing.png").save("output.png")
 
 # Create a map centered at a specific location
-mymap = folium.Map(location=[location.latitude ,location.longitude], zoom_start=100)
+mymap = folium.Map(location=[location.latitude ,location.longitude], zoom_start=18.5)
 
 # Add a satellite imagery layer (you can replace the URL with other sources)
 folium.TileLayer(
